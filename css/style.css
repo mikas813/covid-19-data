@@ -1,0 +1,91 @@
+/**
+ * Body CSS
+ */
+
+html,
+body {
+    height: 100%;
+}
+.mui-row{
+    background-color: #000;
+
+}
+html,
+body,
+input,
+textarea,
+buttons {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+.mui-col-sm-10{
+    padding: 15px 15px 15px 80px;
+    background-color: #222222;
+    border: 1px solid #bdbdbd;
+    color: #bdbdbd;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.country{
+    text-transform: uppercase;
+}
+.asside-time{
+    color: white;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+.time{
+    color: #fff;
+}
+.cases,
+.deaths,
+.new_deaths,
+.new_cases,
+.critical,
+.active_cases,
+.total_cases_per_1m_population{
+    color: red;
+}
+.recovered{
+    color: forestgreen;
+}
+/**
+ * Sidebar CSS
+ */
+
+#sidebar {
+    /*background-color: #E57373;*/
+    padding: 15px;
+    background-color: rgb(230, 0, 0);
+}
+
+@media (min-width: 768px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 180px;
+        height: 100%;
+        padding-top: 30px;
+    }
+}
+
+/**
+ * Content CSS
+ */
+@media (min-width: 768px) {
+    #content {
+        margin-left: 180px;
+    }
+}
+@media (max-width: 360px) {
+    .mui-col-sm-10 {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+    .asside-time {
+        font-size: 10px;
+    }
+}
