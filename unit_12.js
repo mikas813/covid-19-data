@@ -29,7 +29,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
             return response.json()
         })
     .then(function (info) {
-        document.querySelector('.time').textContent = info.statistic_taken_at;
+        document.querySelector('.time').textContent = info.statistic_taken_at.substring(0, info.statistic_taken_at.length - 8);
         for (let key in info) {
             for (let i in info[key]) {
                 if (info[key][i]['country_name'] === 'Italy') {
@@ -91,3 +91,5 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
             }
         }
     })
+var str = "abcdef";
+console.log(str.substring(0, str.length - 5));
