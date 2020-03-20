@@ -91,5 +91,4 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
             }
         }
     })
-var str = "abcdef";
-console.log(str.substring(0, str.length - 5));
+

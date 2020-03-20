@@ -67,7 +67,9 @@ buttons {
 }
 .author{
     padding: 15px;
-    background-color: rgb(230, 0, 0);
+    background: rgb(231,68,46);
+    background: radial-gradient(circle, rgba(231,68,46,1) 0%, rgba(0,0,0,1) 53%);
+
     text-align: center;
     color: #ffffff;
 }
@@ -78,7 +80,7 @@ buttons {
 #sidebar {
     /*background-color: #E57373;*/
     padding: 15px;
-    background-color: rgb(230, 0, 0);
+    background-image: linear-gradient(to right, #e7442e, #ae2e33, #74212d, #3b161e, #000000);
 }
 
 @media (min-width: 768px) {
