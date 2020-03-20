@@ -19,9 +19,14 @@ buttons {
     -moz-osx-font-smoothing: grayscale;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
+<<<<<<< HEAD
 .mui-col-sm-10,
 .total_info-wrapper{
     padding: 15px 15px 15px 80px;
+=======
+.mui-col-sm-10{
+    padding: 15px 15px 15px 10px;
+>>>>>>> 2b93f5010ae118e5dc81225d8a47c185d554404c
     background-color: #222222;
     border: 1px solid #bdbdbd;
     color: #bdbdbd;
