@@ -19,14 +19,9 @@ buttons {
     -moz-osx-font-smoothing: grayscale;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
-<<<<<<< HEAD
 .mui-col-sm-10,
 .total_info-wrapper{
     padding: 15px 15px 15px 80px;
-=======
-.mui-col-sm-10{
-    padding: 15px 15px 15px 10px;
->>>>>>> 2b93f5010ae118e5dc81225d8a47c185d554404c
     background-color: #222222;
     border: 1px solid #bdbdbd;
     color: #bdbdbd;
@@ -70,8 +65,7 @@ buttons {
     font-weight: 600;
     padding: 9px;
 }
-footer{
-    width: 100%;
+.author{
     padding: 15px;
     background-color: rgb(230, 0, 0);
     text-align: center;
@@ -111,8 +105,10 @@ footer{
         font-size: 12px;
         padding-left: 10px;
     }
-
     .asside-time {
-        font-size: 10px;
+        font-size: 13px;
+    }
+    .mui--text-display1{
+        font-size: 28px;
     }
 }
