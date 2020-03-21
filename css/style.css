@@ -21,6 +21,10 @@ buttons {
     -moz-osx-font-smoothing: grayscale;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
+.graphic{
+    margin-top: 10px;
+    border-radius: 10px;
+}
 .mui-col-sm-10,
 .total_info-wrapper{
     padding: 15px 15px 15px 80px;
