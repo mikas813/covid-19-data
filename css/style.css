@@ -108,7 +108,7 @@ buttons {
         margin-left: 180px;
     }
 }
-@media (max-width: 360px) {
+@media (max-width: 460px) {
     .mui-col-sm-10 {
         font-size: 12px;
         padding-left: 10px;
