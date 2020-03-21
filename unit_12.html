@@ -27,6 +27,41 @@
         </div>
     </div>
 </div>
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+            "symbols": [
+            {
+                "proName": "OANDA:SPX500USD",
+                "title": "S&P 500"
+            },
+            {
+                "proName": "OANDA:NAS100USD",
+                "title": "NASDAQ 100"
+            },
+            {
+                "proName": "FX_IDC:EURUSD",
+                "title": "EUR/USD"
+            },
+            {
+                "proName": "BITSTAMP:BTCUSD",
+                "title": "BTC/USD"
+            },
+            {
+                "proName": "BITSTAMP:ETHUSD",
+                "title": "ETH/USD"
+            }
+        ],
+            "colorTheme": "dark",
+            "isTransparent": false,
+            "displayMode": "adaptive",
+            "locale": "pt"
+        }
+    </script>
+</div>
+<!-- TradingView Widget END -->
 <div id="content" class="mui-container-fluid">
     <div class="mui-row">
         <div class="mui-col-sm-10 mui-col-sm-offset-1">
@@ -34,84 +69,99 @@
             <div class="mui-divider"></div>
             <div class="mui--text-headline"></div>
             <div class="mui--text-black-54">Total cases: <a class="it_cases cases" href="#"></a></div>
-            <div class="mui--text-black-54">Total deaths: <a class="it_deaths deaths" href="#"></a></div>
             <div class="mui--text-black-54">Total recovered: <a class="it_total_recovered recovered" href="#"></a></div>
             <div class="mui--text-black-54">New deaths: <a class="it_new_deaths new_deaths" href="#"></a></div>
             <div class="mui--text-black-54">New cases: <a class="it_new_cases new_cases" href="#"></a></div>
             <div class="mui--text-black-54">Critical: <a class="it_serious_critical critical" href="#"></a></div>
             <div class="mui--text-black-54">Active cases: <a class="it_active_cases active_cases" href="#"></a></div>
             <div class="mui--text-black-54">Cases per 1m population: <a class="it_total_cases_per_1m_population total_cases_per_1m_population" href="#"></a></div>
+            <br>
+            <div class="mui--text-black-54">Total deaths: <a class="it_deaths deaths" href="#"></a></div>
+            <iframe class="graphic" src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=itcoviddt&v=202003211242V20191105&type=type=splinearea&h=150&w=300' height='150' width='300'  frameborder='0' scrolling='no'></iframe><br />source: <a href='https://tradingeconomics.com/italy/coronavirus-deaths'>tradingeconomics.com</a>
+
         </div>
         <div class="mui-col-sm-10 mui-col-sm-offset-1">
             <div class="mui--text-black-54 mui--text-body2">Country: <span class="usa_country"></span></div>
             <div class="mui-divider"></div>
             <div class="mui--text-headline"></div>
             <div class="mui--text-black-54">Total cases: <a class="usa_cases cases" href="#"></a></div>
-            <div class="mui--text-black-54">Total deaths: <a class="usa_deaths deaths" href="#"></a></div>
             <div class="mui--text-black-54">Total recovered: <a class="usa_total_recovered recovered" href="#"></a></div>
             <div class="mui--text-black-54">New deaths: <a class="usa_new_deaths new_deaths" href="#"></a></div>
             <div class="mui--text-black-54">New cases: <a class="usa_new_cases new_cases" href="#"></a></div>
             <div class="mui--text-black-54">Critical: <a class="usa_serious_critical critical" href="#"></a></div>
             <div class="mui--text-black-54">Active cases: <a class="usa_active_cases active_cases" href="#"></a></div>
             <div class="mui--text-black-54">Cases per 1m population: <a class="usa_total_cases_per_1m_population total_cases_per_1m_population" href="#"></a></div>
+            <br>
+            <div class="mui--text-black-54">Total deaths: <a class="usa_deaths deaths" href="#"></a></div>
+            <iframe class="graphic" src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=uscoviddt&v=202003211242V20191105&type=type=splinearea&h=150&w=300' height='150' width='300'  frameborder='0' scrolling='no'></iframe><br />source: <a href='https://tradingeconomics.com/united-states/coronavirus-deaths'>tradingeconomics.com</a>
         </div>
         <div class="mui-col-sm-10 mui-col-sm-offset-1">
             <div class="mui--text-black-54 mui--text-body2">Country: <span class="pt_country"></span></div>
             <div class="mui-divider"></div>
             <div class="mui--text-headline"></div>
             <div class="mui--text-black-54">Total cases: <a class="pt_cases cases" href="#"></a></div>
-            <div class="mui--text-black-54">Total deaths: <a class="pt_deaths deaths" href="#"></a></div>
             <div class="mui--text-black-54">Total recovered: <a class="pt_total_recovered recovered" href="#"></a></div>
             <div class="mui--text-black-54">New deaths: <a class="pt_new_deaths new_deaths" href="#"></a></div>
             <div class="mui--text-black-54">New cases: <a class="pt_new_cases new_cases" href="#"></a></div>
             <div class="mui--text-black-54">Critical: <a class="pt_serious_critical critical" href="#"></a></div>
             <div class="mui--text-black-54">Active cases: <a class="pt_active_cases active_cases" href="#"></a></div>
             <div class="mui--text-black-54">Cases per 1m population: <a class="pt_total_cases_per_1m_population total_cases_per_1m_population" href="#"></a></div>
+            <br>
+            <div class="mui--text-black-54">Total deaths: <a class="pt_deaths deaths" href="#"></a></div>
+            <iframe class="graphic" src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=ptcoviddt&v=202003211156V20191105&type=type=splinearea&h=150&w=300' height='150' width='300'  frameborder='0' scrolling='no'></iframe><br />source: <a href='https://tradingeconomics.com/portugal/coronavirus-deaths'>tradingeconomics.com</a>
         </div>
         <div class="mui-col-sm-10 mui-col-sm-offset-1">
             <div class="mui--text-black-54 mui--text-body2">Country: <span class="arg_country"></span></div>
             <div class="mui-divider"></div>
             <div class="mui--text-headline"></div>
             <div class="mui--text-black-54">Total cases: <a class="arg_cases cases" href="#"></a></div>
-            <div class="mui--text-black-54">Total deaths: <a class="arg_deaths deaths" href="#"></a></div>
             <div class="mui--text-black-54">Total recovered: <a class="arg_total_recovered recovered" href="#"></a></div>
             <div class="mui--text-black-54">New deaths: <a class="arg_new_deaths new_deaths" href="#"></a></div>
             <div class="mui--text-black-54">New cases: <a class="arg_new_cases new_cases" href="#"></a></div>
             <div class="mui--text-black-54">Critical: <a class="arg_serious_critical critical" href="#"></a></div>
             <div class="mui--text-black-54">Active cases: <a class="arg_active_cases active_cases" href="#"></a></div>
             <div class="mui--text-black-54">Cases per 1m population: <a class="arg_total_cases_per_1m_population total_cases_per_1m_population" href="#"></a></div>
+            <br>
+            <div class="mui--text-black-54">Total deaths: <a class="arg_deaths deaths" href="#"></a></div>
+            <iframe class="graphic" src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=arcoviddt&v=202003210941V20191105&type=type=splinearea&h=150&w=300' height='150' width='300'  frameborder='0' scrolling='no'></iframe><br />source: <a href='https://tradingeconomics.com/argentina/coronavirus-deaths'>tradingeconomics.com</a>
         </div>
         <div class="mui-col-sm-10 mui-col-sm-offset-1">
             <div class="mui--text-black-54 mui--text-body2">Country: <span class="ve_country"></span></div>
             <div class="mui-divider"></div>
             <div class="mui--text-headline"></div>
             <div class="mui--text-black-54">Total cases: <a class="ve_cases cases" href="#"></a></div>
-            <div class="mui--text-black-54">Total deaths: <a class="ve_deaths deaths" href="#"></a></div>
             <div class="mui--text-black-54">Total recovered: <a class="ve_total_recovered recovered" href="#"></a></div>
             <div class="mui--text-black-54">New deaths: <a class="ve_new_deaths new_deaths" href="#"></a></div>
             <div class="mui--text-black-54">New cases: <a class="ve_new_cases new_cases" href="#"></a></div>
             <div class="mui--text-black-54">Critical: <a class="ve_serious_critical critical" href="#"></a></div>
             <div class="mui--text-black-54">Active cases: <a class="ve_active_cases active_cases" href="#"></a></div>
             <div class="mui--text-black-54">Cases per 1m population: <a class="ve_total_cases_per_1m_population total_cases_per_1m_population" href="#"></a></div>
+            <br>
+            <div class="mui--text-black-54">Total deaths: <a class="ve_deaths deaths" href="#"></a></div>
+            <iframe class="graphic" src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=vecoviddt&v=202003210941V20191105&type=type=splinearea&h=150&w=300' height='150' width='300'  frameborder='0' scrolling='no'></iframe><br />source: <a href='https://tradingeconomics.com/venezuela/coronavirus-deaths'>tradingeconomics.com</a>
         </div>
         <div class="mui-col-sm-10 mui-col-sm-offset-1">
             <div class="mui--text-black-54 mui--text-body2">Country: <span class="ua_country"></span></div>
             <div class="mui-divider"></div>
             <div class="mui--text-headline"></div>
             <div class="mui--text-black-54">Total cases: <a class="ua_cases cases" href="#"></a></div>
-            <div class="mui--text-black-54">Total deaths: <a class="ua_deaths deaths" href="#"></a></div>
             <div class="mui--text-black-54">Total recovered: <a class="ua_total_recovered recovered" href="#"></a></div>
             <div class="mui--text-black-54">New deaths: <a class="ua_new_deaths new_deaths" href="#"></a></div>
             <div class="mui--text-black-54">New cases: <a class="ua_new_cases new_cases" href="#"></a></div>
             <div class="mui--text-black-54">Critical: <a class="ua_serious_critical critical" href="#"></a></div>
             <div class="mui--text-black-54">Active cases: <a class="ua_active_cases active_cases" href="#"></a></div>
             <div class="mui--text-black-54">Cases per 1m population: <a class="ua_total_cases_per_1m_population total_cases_per_1m_population" href="#"></a></div>
+            <br>
+            <div class="mui--text-black-54">Total deaths: <a class="ua_deaths deaths" href="#"></a></div>
+            <iframe class="graphic" src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=uacoviddt&v=202003210941V20191105&type=type=splinearea&h=150&w=300' height='150' width='300'  frameborder='0' scrolling='no'></iframe><br />source: <a href='https://tradingeconomics.com/ukraine/coronavirus-deaths'>tradingeconomics.com</a>
         </div>
     </div>
 </div>
+
 <div class="author">
     <p>by Mykhailo Lasiichuk 2020</p>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="unit_12.js"></script>
 </body>
 </html>
