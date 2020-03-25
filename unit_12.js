@@ -9,13 +9,12 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
         return totalDeaths.json()
     })
     .then(function (deathsInfo) {
-        console.log(deathsInfo)
+        // console.log(deathsInfo)
         document.querySelector('.total_cases').innerHTML = deathsInfo['total_cases'];
         document.querySelector('.total_deaths').innerHTML = deathsInfo['total_deaths'];
         document.querySelector('.total_recovered').innerHTML = deathsInfo['total_recovered'];
+
     })
-
-
 
 fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", {
     "method": "GET",
@@ -29,8 +28,25 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
             return response.json()
         })
     .then(function (info) {
-        console.log(info);
+        // console.log(info);
         document.querySelector('.time').textContent = info.statistic_taken_at.substring(0, info.statistic_taken_at.length - 8);
+
+        for (let key in info) {
+            for (let i in info[key]) {
+                if (info[key][i]['country_name'] === 'China') {
+                    document.querySelector('.china_country').textContent = info[key][i]['country_name'];
+                    document.querySelector('.china_cases').textContent = info[key][i]['cases'];
+                    document.querySelector('.china_deaths').textContent = info[key][i]['deaths'];
+                    document.querySelector('.china_total_recovered').textContent = info[key][i]['total_recovered'];
+                    document.querySelector('.china_new_deaths').textContent = info[key][i]['new_deaths'];
+                    document.querySelector('.china_new_cases').textContent = info[key][i]['new_cases'];
+                    document.querySelector('.china_serious_critical').textContent = info[key][i]['serious_critical'];
+                    document.querySelector('.china_active_cases').textContent = info[key][i]['active_cases'];
+                    document.querySelector('.china_total_cases_per_1m_population').textContent = info[key][i]['total_cases_per_1m_population'];
+                }
+
+            }
+        }
         for (let key in info) {
             for (let i in info[key]) {
                 if (info[key][i]['country_name'] === 'Italy') {
@@ -44,6 +60,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                     document.querySelector('.it_active_cases').textContent = info[key][i]['active_cases'];
                     document.querySelector('.it_total_cases_per_1m_population').textContent = info[key][i]['total_cases_per_1m_population'];
                 }
+
             }
         }
         for (let key in info) {
@@ -121,12 +138,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                 }
             }
         }
-        for (let key in info) {
-            for (let i in info[key]) {
-                if (info[key][i]['cases'] == 0) {
-                    console.log(info[key][i]);
-                }
-            }
-        }
+
     })
+
 
