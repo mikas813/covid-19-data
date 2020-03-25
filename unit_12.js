@@ -126,15 +126,15 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
         for (let key in info) {
             for (let i in info[key]) {
                 if (info[key][i]['country_name'] === 'Argentina') {
-                    document.querySelector('.arg_country').textContent = info[key][i]['country_name'];
-                    document.querySelector('.arg_cases').textContent = info[key][i]['cases'];
-                    document.querySelector('.arg_deaths').textContent = info[key][i]['deaths'];
-                    document.querySelector('.arg_total_recovered').textContent = info[key][i]['total_recovered'];
-                    document.querySelector('.arg_new_deaths').textContent = info[key][i]['new_deaths'];
-                    document.querySelector('.arg_new_cases').textContent = info[key][i]['new_cases'];
-                    document.querySelector('.arg_serious_critical').textContent = info[key][i]['serious_critical'];
-                    document.querySelector('.arg_active_cases').textContent = info[key][i]['active_cases'];
-                    document.querySelector('.arg_total_cases_per_1m_population').textContent = info[key][i]['total_cases_per_1m_population'];
+                    document.querySelector('.ar_country').textContent = info[key][i]['country_name'];
+                    document.querySelector('.ar_cases').textContent = info[key][i]['cases'];
+                    document.querySelector('.ar_deaths').textContent = info[key][i]['deaths'];
+                    document.querySelector('.ar_total_recovered').textContent = info[key][i]['total_recovered'];
+                    document.querySelector('.ar_new_deaths').textContent = info[key][i]['new_deaths'];
+                    document.querySelector('.ar_new_cases').textContent = info[key][i]['new_cases'];
+                    document.querySelector('.ar_serious_critical').textContent = info[key][i]['serious_critical'];
+                    document.querySelector('.ar_active_cases').textContent = info[key][i]['active_cases'];
+                    document.querySelector('.ar_total_cases_per_1m_population').textContent = info[key][i]['total_cases_per_1m_population'];
                 }
             }
         }

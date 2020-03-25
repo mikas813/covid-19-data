@@ -26,11 +26,8 @@ buttons {
 .graphic{
     margin-top: 10px;
     border-radius: 10px;
-<<<<<<< HEAD
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-=======
->>>>>>> b5077d9d4788981bf2b8623f3ead7b09cae0dd7d
 }
 .mui-col-sm-10,
 .total_info-wrapper{
