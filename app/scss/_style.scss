@@ -5,42 +5,13 @@ body{
 	background-color: #414a4c;
 	background-attachment:fixed;
 }
-header{
-	display: none;
-	background-color: #909090;
-	height: 60px;
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 50px;
-	@media (max-width: 782px){
-		margin-bottom: 0;
-	}
-	.banner{
-		height: 50%;
-		width: 100%;
-		background-color: #fff;
-		position: absolute;
-		transition: all 2s;
-	}
-	.top_banner{
-		top: 0;
-		// &:hover{
-		// 	top: -30px;
-		// }
-	}
-	.bottom_banner{
-		bottom: 0;
-		// &:hover{
-		// 	bottom: -30px;
-		// }
-	}
-}
 .side-bar-info{
 	color: #909090;
 	display: inline-block;
 	width: 25%;
 	background-color: #353839;
 	position: fixed;
+	line-height: 1.4;
 	@media (max-width: 782px){
 		display: block;
 		text-align: center;
@@ -51,8 +22,39 @@ header{
 		position: relative;
 		margin-bottom: 20px;
 	}
+	span{
+		color: $main-red-text-color;
+	}
+	.total_recovered{
+		span{
+			color: $main-green-text-color;
+		}
+	}
+	.statistic_taken_at{
+		span{
+			color: white;
+		}
+	}
 }
-
+.ancor{
+	z-index: 1;
+	background-color: red;
+	width: 30px;
+	border-radius: 50%;
+	height: 30px;
+	position: fixed;
+	bottom:20px;
+	right: 15px;
+	&::before{
+		position: absolute;
+		content: '>';
+		top: 4px;
+		color: white;
+		font-size: 21px;
+		right: 9px;
+		transform: rotate(-90deg);
+	}
+}
 main{
 	margin-left: 30%;
 	display: inline-block;
@@ -64,13 +66,32 @@ main{
 		padding: 25px;
 		border-radius: 15px;
 		opacity: .9;
-		-webkit-box-shadow: -2px -1px 66px 22px rgba(93,95,96,0.52);
-		-moz-box-shadow: -2px -1px 66px 22px rgba(93,95,96,0.52);
-		box-shadow: -2px -1px 66px 22px rgba(93,95,96,0.52);
+		position: relative;
+		.index{
+			position: absolute;
+			top: 25px;
+			right: 15px;
+			font-size: 16px;
+			color: white;
+		}
+		.total_recovered{
+			span{
+				color: $main-green-text-color;
+			}
+		}
 		.country_name{
 			color: #fff;
 			font-size: 18px;
 			margin-bottom: 10px;
+			span{
+				color: white;
+			}
+		}
+		.region{
+			display: none;
+		}
+		span{
+			color: $main-red-text-color;
 		}
 	}
 		@media (max-width: 600px){
