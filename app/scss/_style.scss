@@ -1,0 +1,83 @@
+body{
+	background-image: url(../images/virus-germs_med_background.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #414a4c;
+	background-attachment:fixed;
+}
+header{
+	display: none;
+	background-color: #909090;
+	height: 60px;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 50px;
+	@media (max-width: 782px){
+		margin-bottom: 0;
+	}
+	.banner{
+		height: 50%;
+		width: 100%;
+		background-color: #fff;
+		position: absolute;
+		transition: all 2s;
+	}
+	.top_banner{
+		top: 0;
+		// &:hover{
+		// 	top: -30px;
+		// }
+	}
+	.bottom_banner{
+		bottom: 0;
+		// &:hover{
+		// 	bottom: -30px;
+		// }
+	}
+}
+.side-bar-info{
+	color: #909090;
+	display: inline-block;
+	width: 25%;
+	background-color: #353839;
+	position: fixed;
+	@media (max-width: 782px){
+		display: block;
+		text-align: center;
+		width: 100%;
+		padding: 15px;
+		opacity: .95;
+		margin: 0 auto;
+		position: relative;
+		margin-bottom: 20px;
+	}
+}
+
+main{
+	margin-left: 30%;
+	display: inline-block;
+	.country_inner{
+		color: #909090;
+		background-color: #222222;
+		border: 3px solid;
+		font-size: 14px;
+		padding: 25px;
+		border-radius: 15px;
+		opacity: .9;
+		-webkit-box-shadow: -2px -1px 66px 22px rgba(93,95,96,0.52);
+		-moz-box-shadow: -2px -1px 66px 22px rgba(93,95,96,0.52);
+		box-shadow: -2px -1px 66px 22px rgba(93,95,96,0.52);
+		.country_name{
+			color: #fff;
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+	}
+		@media (max-width: 600px){
+		display: block;
+		width: 290px;
+		margin: 0 auto;
+		position: relative;
+		margin-bottom: 20px;
+	}
+}

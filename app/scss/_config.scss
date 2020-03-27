@@ -1,0 +1,134 @@
+//variables 
+    //font
+
+        //font family
+            $main_font: 'Lato', Sans-serif;
+            $secondary_font: 'Georgia', Sans-serif;
+        //==/font family
+
+        //==font colors
+            $main_font-color: #303030; 
+            $secondary_font-color: #606060;
+            $border_color: #959595;   
+            $check_btn_font-color: rgb(48, 48, 48);
+            $main-text-color: #606060;
+            $link-color: #e67429;
+        //==/font colors
+
+      
+        //==font sizes
+            $main_font-size: 16px;
+            $header-footer_font-size: 14px;
+             
+            $S-title_font-size: 18px;
+            $M-title_font-size: 24px;
+            $L-title_font-size: 36px;
+            $XL-title_font-size: 52px;
+            $XXL-title_font-size: 72px;
+        //==/font sizes
+    //==font
+
+    
+    //site colors
+        //main colors
+            $main_back_gro-col: #e5e5e5;
+            $border-color: #e5e5e5;
+            $container-color: #fff;
+            $grey: #f9f9f9;
+            $secondary-grey: #fefefe;
+            $black: #000000;
+
+        //==main colors
+
+        //grid items colors
+            $grid_item_1-col: #d2d2d2;
+            $grid_item_2-col: #bbbbbb;
+            $grid_item_3-col: #dbdbdb;
+            $grid_item_4-col: #606060;
+            $grid_item_5-col: #cacaca;
+            $grid_item_6-col: #bbbbbb;
+            $grid_item_7-col: #d7d7d7;
+            $grid_item_8-col: #c2c2c2;
+            $grid_item_9-col: #606060;
+            $grid_item_10-col: #d0d0d0;
+        //grid items colors
+   
+        //button colors
+            $btn_color: #f68236;
+            $btn_border-color: #e67429;
+        //button colors
+    //==/site colors
+    
+    //site sizes
+        //GRID BOX SIZE
+            $box-width: 295px;
+            $tall_box-height: 590px;  
+            $box-height: 295px;
+        //==GRID BOX SIZE
+    //==site sizes      
+//==/variables
+
+    //Header
+    @mixin header_menu-text {
+        font-family: $main_font;
+        font-size: $header-footer_font-size;    
+        color: $main_font-color; 
+        letter-spacing: .5px;
+    }
+    //Newsletter
+    @mixin check_btn-options {
+        font-family: $main_font-reg;
+        font-size:  $header-footer_font-size;
+        color: $main_font-color;
+        font-weight: 100; 
+    }
+    //==Newsletter
+
+   
+    /*Secondary navigation buttons above title of category pages!
+     exmp "HOME / MEN"*/
+    @mixin secondary_nav-btn{
+        color: $main_font-color;
+        font-family: $main_font-reg;
+        font-size: $header-footer_font-size;
+    }
+
+    //Main box shadow
+    @mixin main-box-shadow { /* Shadow that used in dropdown hover menus*/
+        box-shadow: -12px 14px 37px 5px rgba(0,0,0,0.48);
+        -webkit-box-shadow: -12px 14px 37px 5px rgba(0,0,0,0.48);
+        -moz-box-shadow: -12px 14px 37px 5px rgba(0,0,0,0.48);
+}
+//Hover aperence mixin
+    @mixin hover-visible { /* Set visibility to visible and opacity to 1*/
+        opacity: 1;
+        visibility: visible;
+    }
+    @mixin hover-hidden { /* Set visibility hidden and opacity to 0*/
+        opacity: 0;
+        visibility: hidden;
+    }
+// Header hover basket and user common options!
+@mixin hover-basket-user-opt { /*Set common options to both hover menus, basket and user*/
+    z-index: 1;
+    transition: all .3s;
+    position: absolute;
+    border: 1px solid $border-color;
+    background-color: $container-color;
+    }
+    //Before border of basket/user icons
+    @mixin border-before { /*This border has not border bottom, located above hover menu, used for user and basket icons*/
+        content: '';
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-bottom: 1px solid #fff;
+    }
+//==/mixins
+
+
+
+     
+
+
+
