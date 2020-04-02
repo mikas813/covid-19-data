@@ -54,3 +54,14 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
             }
         }
     })
+let nodeItems = (document.getElementsByTagName('article'));
+// for(let item of nodeItems){
+    console.log(nodeItems)
+// }
+for (let key in nodeItems){
+    console.log(key)
+}
+
+$(document).ready(function() {
+    $('#tipue_search_input').tipuesearch();
+});
