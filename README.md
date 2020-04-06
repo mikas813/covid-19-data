@@ -1,3 +1,3 @@
-# EDIT-Project
-Projeto de curso Front-End 2020 EDIT.
+# Covid-19 Info site.
+Total cases, deaths and recovered in whoe world.
 Mykhailo Lasiichuk
