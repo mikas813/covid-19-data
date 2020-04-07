@@ -19,13 +19,27 @@ gulp.task('sass', function () {
         .pipe(browserSync.reload({ stream: true })) //task 'browserSync' refreshes page if occour any change!
 });
 
+
+
 gulp.task('script', function () {
     return gulp.src([
-        'app/js/*.js',
+        'node_modules/selectric/src/jquery.selectric.js'
+
+
     ])
         .pipe(concat('libs.min.js')) //unites all files 'js' to unic file 'libs.min.js'!
-        // .pipe(uglify()) //minimazes all js libs!
+        .pipe(uglify()) //minimazes all js libs!
         .pipe(gulp.dest('app/js')) //destination!
+});
+
+gulp.task('style', function () {
+    return gulp.src([
+        'node_modules/selectric/src/selectric.scss'
+    ])
+        .pipe(sass({ outputStyle: 'compressed' })) //compres 'css'!
+        .pipe(concat('libs.min.css')) //unites all files 'css' to unic file 'libs.css'!
+        .pipe(cssmin()) //minimazes all css libs!
+        .pipe(gulp.dest('app/css')) //destination!
 });
 
 gulp.task('html', function () {  //refreshes page by writting 'html' in terminal!
@@ -56,4 +70,4 @@ gulp.task('watch', function () { //'watch' watches for changes to files and exec
 
 });
 
-gulp.task('default', gulp.parallel('script', 'sass', 'watch', 'browser-sync')) //'default' multitask for gulp!
+gulp.task('default', gulp.parallel('script', 'style', 'sass', 'watch', 'browser-sync')) //'default' multitask for gulp!

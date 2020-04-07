@@ -13,25 +13,9 @@ header{
 	}
 }
 .side-bar-info{
-	padding: 25px;
-    color: #909090;
-    display: inline-block;
-    width: 25%;
-    background-color: #353839;
-    position: fixed;
-    line-height: 1.4;
-    border-radius: 10px;
-    border: 3px solid;
-    margin: 30px 10px;
+	@include asideItemStyles;
 	@media (max-width: 1000px){
-		display: block;
-		text-align: center;
-		width: 100%;
-		padding: 15px;
-		opacity: .95;
-		margin: 0 auto;
-		position: relative;
-		margin-bottom: 20px;
+		@include respAsideItems;
 	}
 	span{
 		color: $main-red-text-color;
@@ -44,6 +28,102 @@ header{
 	.statistic_taken_at{
 		span{
 			color: white;
+		}
+	}
+	.select-country{
+		@include asideItemStyles;
+		height: 50px;
+		margin-top: 10px;
+		overflow: scroll;
+		transition: all 2s;
+		position: absolute;
+		a{
+			display: block;
+		}
+		@media (min-width: 1001px) {
+			width: 100%;
+			top: 220px;
+			left: -10px;
+		}
+		@media (max-width: 1000px){
+			position: fixed;
+			@include respAsideItems;
+			margin-bottom: 10px;
+			padding: 12px;
+		}
+	}
+	.full-height{
+		height: 60vh;
+		transition: all 2s;
+		.hide-window{
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: 22px;
+			right: 15px;
+			transition: all 2s;
+			&::before,
+			&::after{
+				content: '';
+				width: 30px;
+				height: 3px;
+				background-color: red;
+				position: absolute;
+
+			}
+			&::before{
+				top: 0;
+				transition: all 1s;
+				right: 0;
+				transform: rotate(45deg);
+			}
+
+			&::after{
+				top: 0;
+				transition: all 1s;
+				right: 0;
+				transform: rotate(-45deg);
+			}
+		}
+		@media (max-width: 1000px){
+			height: 80vh;
+			transition: all 2s;
+		}
+	}
+	.select-title{
+		font-size: 18px;
+		color: white;
+		margin-bottom: 10px;
+		@media (min-width: 1001px) {
+			margin-top: -13px;
+		}
+	}
+	.hide-window{
+		width: 30px;
+		height: 3px;
+		background-color: #909090;
+		position: absolute;
+		transition: all 2s;
+
+		top: 22px;
+		right: 15px;
+		&::before,
+		&::after{
+			content: '';
+			width: 30px;
+			height: 3px;
+			background-color: #909090;
+			position: absolute;
+
+		}
+		&::before{
+			top: -9px;
+			right: 0;
+		}
+
+		&::after{
+			top: 9px;
+			right: 0;
 		}
 	}
 }
@@ -113,5 +193,8 @@ main{
 		margin: 0 auto;
 		position: relative;
 		margin-bottom: 20px;
+	}
+	article:nth-last-child(-n+19){
+		display: none;
 	}
 }

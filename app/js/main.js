@@ -1,5 +1,7 @@
 const totalInfoElement = document.querySelector('.side-bar-info');
 const infoByCountryElement = document.querySelector('.main-section-info');
+const selectForCountries = document.querySelector('.select-country');
+
 
 fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
     "method": "GET",
@@ -32,16 +34,26 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
             return response.json()
         })
     .then(function (info) {
+    let countriesForSelect = [];
         for (let key in info) {
             for (var i = 0; i < info[key].length; i++) {
                 let contentInner = document.createElement('article');
                 contentInner.style.marginBottom = "40px";
                 infoByCountryElement.appendChild(contentInner);
+
+
                 let classNameByCountry = info[key][i]['country_name'];
+
                 if (typeof classNameByCountry === 'string') {
                     classNameByCountry = classNameByCountry.toLowerCase();
                     classNameByCountry = classNameByCountry.split(' ').join('_');
                     contentInner.classList.add(classNameByCountry, 'country_inner');
+                    contentInner.setAttribute("id", classNameByCountry);
+                    countriesForSelect += classNameByCountry;
+                    let anchorForCountry = document.createElement('a');
+                    selectForCountries.appendChild(anchorForCountry);
+                    anchorForCountry.innerHTML +=  info[key][i]['country_name'];
+                    anchorForCountry.setAttribute("href", "#"+classNameByCountry)
                 }
                 for (let item in info[key][i]) {
                     let countryInfo = document.createElement('p');
@@ -49,19 +61,14 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                     countryInfo.classList.add(item, 'country_info');
                     let itemNameToUpperCase = item[0].toUpperCase() + item.slice(1);
                     countryInfo.innerHTML += `${itemNameToUpperCase.split('_').join(' ')}: <span>${info[key][i][item]}`;
+
                 }
                 contentInner.innerHTML += `<span class="index">${i + 1}`
+            console.log(classNameByCountry)
             }
         }
     })
-let nodeItems = (document.getElementsByTagName('article'));
-// for(let item of nodeItems){
-    console.log(nodeItems)
-// }
-for (let key in nodeItems){
-    console.log(key)
-}
 
-$(document).ready(function() {
-    $('#tipue_search_input').tipuesearch();
-});
+
+document.querySelector('.hide-window').onclick =()=> document.querySelector('.select-country').classList.toggle('full-height');
+
