@@ -23,8 +23,6 @@ gulp.task('sass', function () {
 
 gulp.task('script', function () {
     return gulp.src([
-        'node_modules/selectric/src/jquery.selectric.js'
-
 
     ])
         .pipe(concat('libs.min.js')) //unites all files 'js' to unic file 'libs.min.js'!
@@ -34,7 +32,6 @@ gulp.task('script', function () {
 
 gulp.task('style', function () {
     return gulp.src([
-        'node_modules/selectric/src/selectric.scss'
     ])
         .pipe(sass({ outputStyle: 'compressed' })) //compres 'css'!
         .pipe(concat('libs.min.css')) //unites all files 'css' to unic file 'libs.css'!
@@ -70,4 +67,4 @@ gulp.task('watch', function () { //'watch' watches for changes to files and exec
 
 });
 
-gulp.task('default', gulp.parallel('script', 'style', 'sass', 'watch', 'browser-sync')) //'default' multitask for gulp!
+gulp.task('default', gulp.parallel( 'sass', 'watch', 'browser-sync')) //'default' multitask for gulp!
