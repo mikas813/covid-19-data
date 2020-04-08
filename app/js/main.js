@@ -1,6 +1,8 @@
 const totalInfoElement = document.querySelector('.side-bar-info');
 const infoByCountryElement = document.querySelector('.main-section-info');
 const selectForCountries = document.querySelector('.select-country');
+const sectionForColorado = document.querySelector('.colorado-info');
+
 
 
 fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
@@ -22,6 +24,39 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
             block.innerHTML += `${itemNameToUpperCase.split('_').join(' ')}: <span>${deathsInfo[item]}`;
         }
     })
+
+
+fetch("https://covid19-data.p.rapidapi.com/geojson-us", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "covid19-data.p.rapidapi.com",
+        "x-rapidapi-key": "6d291bb001msh74f879e7cae0d1ep1a2a38jsnfdb0b0ba682d"
+    }
+})
+
+    .then(function (casesByState) {
+        return casesByState.json()
+    })
+    .then(function (usaDeathsInfo) {
+        for (let key in usaDeathsInfo) {
+
+            for (let item in usaDeathsInfo[key]) {
+                for (let k in usaDeathsInfo[key][item]) {
+                    if (usaDeathsInfo[key][item][k]['name'] === 'Colorado') {
+                        let infoInner = document.createElement('p');
+                        infoInner.innerHTML += `In <span class="state">${usaDeathsInfo[key][item][k]['name']}</span> confirmed: <span class="cases">${usaDeathsInfo[key][item][k]['confirmed']}</span> deaths: <span class="cases">${usaDeathsInfo[key][item][k]['deaths']}</span>`
+                        sectionForColorado.appendChild(infoInner);
+
+                        console.log(usaDeathsInfo[key][item][k]['name'])
+                        console.log(usaDeathsInfo[key][item][k]['confirmed'])
+                        console.log(usaDeathsInfo[key][item][k]['deaths'])
+                    }
+                }
+            }
+        }
+    })
+
+
 fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", {
     "method": "GET",
     "headers": {

@@ -149,6 +149,20 @@ main{
 	margin-top:30px;
 	margin-left: 30%;
 	display: inline-block;
+	.colorado-info{
+		@include asideItemStyles;
+		padding: 10px;
+		margin: 13px 3px;
+		position: static;
+		width: 100%;
+		.state{
+			color: white;
+		}
+		.cases,
+		.deaths{
+			color: $main-red-text-color;
+		}
+	}
 	.country_inner{
 		color: #909090;
 		background-color: #222222;
