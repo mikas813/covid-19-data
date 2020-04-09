@@ -46,10 +46,6 @@ fetch("https://covid19-data.p.rapidapi.com/geojson-us", {
                         let infoInner = document.createElement('p');
                         infoInner.innerHTML += `In <span class="state">${usaDeathsInfo[key][item][k]['name']}</span> confirmed: <span class="cases">${usaDeathsInfo[key][item][k]['confirmed']}</span> deaths: <span class="cases">${usaDeathsInfo[key][item][k]['deaths']}</span>`
                         sectionForColorado.appendChild(infoInner);
-
-                        console.log(usaDeathsInfo[key][item][k]['name'])
-                        console.log(usaDeathsInfo[key][item][k]['confirmed'])
-                        console.log(usaDeathsInfo[key][item][k]['deaths'])
                     }
                 }
             }
@@ -76,13 +72,17 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                 contentInner.style.marginBottom = "40px";
                 infoByCountryElement.appendChild(contentInner);
                 let classNameByCountry = info[key][i]['country_name'];
-                if (typeof classNameByCountry === 'string') {
+                if (classNameByCountry === '') {
+                    classNameByCountry = 'empty';
+                }
+                if (typeof classNameByCountry === 'string' && classNameByCountry !== '') {
                     countriesForSelect += info[key][i]['country_name'] + '*';
                     classNameByCountry = classNameByCountry.toLowerCase();
                     classNameByCountry = classNameByCountry.split(' ').join('_');
                     contentInner.classList.add(classNameByCountry, 'country_inner');
                     contentInner.setAttribute("id", classNameByCountry);
                 }
+
                 for (let item in info[key][i]) {
                     let countryInfo = document.createElement('p');
                     contentInner.appendChild(countryInfo);
@@ -90,11 +90,10 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                     let itemNameToUpperCase = item[0].toUpperCase() + item.slice(1);
                     countryInfo.innerHTML += `${itemNameToUpperCase.split('_').join(' ')}: <span>${info[key][i][item]}`;
                 }
-                contentInner.innerHTML += `<span class="index">${i + 1}`
+                contentInner.innerHTML += `<span class="index">${i}`
             }
         }
         countriesForSelect = countriesForSelect.split('*').sort();
-
         for (let key in countriesForSelect) {
             let anchorForCountry = document.createElement('a');
             selectForCountries.appendChild(anchorForCountry);
