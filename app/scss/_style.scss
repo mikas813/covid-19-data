@@ -9,6 +9,12 @@ header{
 	@media (max-width: 784px) {
 		text-align: center;
 	}
+	.news{
+		margin-top: 5px;
+	}
+	.link{
+		color: #ffffff;
+	}
 }
 .side-bar-info{
 	@include asideItemStyles;
@@ -209,7 +215,7 @@ main{
 		position: relative;
 		margin-bottom: 20px;
 	}
-	article:nth-last-child(-n+19){
+	article:nth-last-child(-n+19) {
 		display: none;
 	}
 }
