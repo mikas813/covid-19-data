@@ -90,7 +90,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                     let itemNameToUpperCase = item[0].toUpperCase() + item.slice(1);
                     countryInfo.innerHTML += `${itemNameToUpperCase.split('_').join(' ')}: <span>${info[key][i][item]}`;
                 }
-                contentInner.innerHTML += `<span class="index">${i}`
+                // contentInner.innerHTML += `<span class="index">${i}`
             }
         }
         countriesForSelect = countriesForSelect.split('*').sort();
