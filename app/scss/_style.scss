@@ -10,6 +10,8 @@ body{
 }
 header{
 	color: #888888;
+	position: relative;
+	background-color: #333333;
 	padding: 20px;
 	@media (max-width: 784px) {
 		text-align: center;
@@ -47,9 +49,9 @@ header{
 	.select-country{
 		@include asideItemStyles;
 		height: 50px;
+		margin-top: 30px;
 
 
-		margin-top: 10px;
 		overflow: scroll;
 		transition: all 2s;
 		position: absolute;
