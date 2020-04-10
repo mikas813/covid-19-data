@@ -4,6 +4,7 @@ const selectForCountries = document.querySelector('.select-country');
 const sectionForColorado = document.querySelector('.colorado-info');
 
 
+
 fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
     "method": "GET",
     "headers": {
@@ -64,7 +65,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
             return response.json()
         })
     .then(function (info) {
-        let countriesForSelect = [];
+    let countriesForSelect = [];
         for (let key in info) {
             for (let i = 0; i < info[key].length; i++) {
                 let contentInner = document.createElement('article');
@@ -89,37 +90,19 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                     let itemNameToUpperCase = item[0].toUpperCase() + item.slice(1);
                     countryInfo.innerHTML += `${itemNameToUpperCase.split('_').join(' ')}: <span>${info[key][i][item]}`;
                 }
+                // contentInner.innerHTML += `<span class="index">${i}`
             }
         }
         countriesForSelect = countriesForSelect.split('*').sort();
         for (let key in countriesForSelect) {
             let anchorForCountry = document.createElement('a');
             selectForCountries.appendChild(anchorForCountry);
-            anchorForCountry.innerHTML += countriesForSelect[key];
-            anchorForCountry.setAttribute("href", "#" + countriesForSelect[key].toLowerCase());
-            anchorForCountry.classList.add('search-country');
+            anchorForCountry.innerHTML +=  countriesForSelect[key];
+            anchorForCountry.setAttribute("href", "#"+countriesForSelect[key].toLowerCase())
         }
 
     })
 
 
-document.querySelector('.hide-window').onclick = () => document.querySelector('.select-country').classList.toggle('full-height');
-
-let countrySearchInput = document.getElementById('search-input');
-let allCountries = document.getElementsByClassName('search-country');
-
-
-function hideAllCounties() {
-    for (let i = 0; i < allCountries.length; i++) {
-        allCountries[i].style.display = "none";
-        if (allCountries[i].getAttribute('href').substr(1)[0] === countrySearchInput.value.toLowerCase() || allCountries[i].getAttribute('href').substr(1) === countrySearchInput.value.toLowerCase()) {
-            allCountries[i].style.display = 'block'
-        }
-        if (countrySearchInput.value === ''){
-            allCountries[i].style.display = "block";
-        }
-    }
-}
-
-countrySearchInput.onkeyup = hideAllCounties;
+document.querySelector('.hide-window').onclick =()=> document.querySelector('.select-country').classList.toggle('full-height');
 

@@ -71,7 +71,7 @@ header{
 		}
 	}
 	.full-height{
-		height: 50vh;
+		height: 460px;
 		transition: all 2s;
 		.hide-window{
 			width: 0;
@@ -104,7 +104,7 @@ header{
 			}
 		}
 		@media (max-width: 1000px){
-			height: 70vh;
+			height: 480px;
 			transition: all 2s;
 		}
 	}
@@ -115,12 +115,6 @@ header{
 		@media (min-width: 1001px) {
 			margin-top: -13px;
 		}
-	}
-	.country-seacrh-input{
-		padding: 5px 10px 5px 15px;
-		width: 100%;
-		border-radius: 8px;
-		margin-bottom: 10px;
 	}
 	.hide-window{
 		width: 30px;
