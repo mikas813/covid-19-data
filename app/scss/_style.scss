@@ -1,21 +1,16 @@
 body{
 	background-size: cover;
-	background-repeat: no-repeat;
-	background-color: #222222;
+	background-attachment: fixed;
+	background-image: url("../bg.webp");
 	font-family: 'Lato', sans-serif;
 	letter-spacing: .8px;
-	img{
-		position: fixed;
-	}
 }
 header{
 	color: #888888;
 	position: relative;
 	background-color: #333333;
 	padding: 20px;
-	@media (max-width: 784px) {
-		text-align: center;
-	}
+	text-align: center;
 	.news{
 		margin-top: 5px;
 	}
@@ -23,10 +18,11 @@ header{
 		color: #ffffff;
 	}
 }
+
 .side-bar-info{
 	font-size: 18px;
 	@include asideItemStyles;
-	background-color: #222222;
+	background-color: $main-bgc;
 	opacity: .9;
 	color: white;
 	@media (max-width: 1000px){
@@ -50,8 +46,6 @@ header{
 		@include asideItemStyles;
 		height: 50px;
 		margin-top: 30px;
-
-
 		overflow: scroll;
 		transition: all 2s;
 		position: absolute;
@@ -62,6 +56,7 @@ header{
 			width: 100%;
 			top: 220px;
 			left: -10px;
+			margin-top: 60px;
 		}
 		@media (max-width: 1000px){
 			position: fixed;
@@ -109,7 +104,7 @@ header{
 		}
 	}
 	.select-title{
-		font-size: 18px;
+		font-size: 16px;
 		color: white;
 		margin-bottom: 10px;
 		@media (min-width: 1001px) {
@@ -118,7 +113,7 @@ header{
 	}
 	.country-seacrh-input{
 		padding: 5px 10px 5px 15px;
-		width: 100%;
+		width: 80%;
 		border-radius: 8px;
 		margin-bottom: 10px;
 	}
@@ -151,26 +146,41 @@ header{
 		}
 	}
 }
-.ancor{
-	z-index: 1;
-	background-color: #8b0000;
-	opacity: .5;
-	width: 30px;
-	border-radius: 50%;
-	height: 30px;
+
+#button {
+	display: inline-block;
+	background-color: $main-red-text-color;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border-radius: 8px;
 	position: fixed;
-	bottom:20px;
+	bottom: 15px;
 	right: 15px;
-	&::before{
-		position: absolute;
-		content: '>';
-		top: 4px;
-		color: white;
-		font-size: 21px;
-		right: 9px;
-		transform: rotate(-90deg);
-	}
+	transition: background-color .3s,
+	opacity .5s, visibility .5s;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 1000;
 }
+#button::after {
+	content: "Go Up";
+	font-size: 1em;
+	line-height: 50px;
+	color: #fff;
+}
+#button:hover {
+	cursor: pointer;
+	background-color: #333;
+}
+#button:active {
+	background-color: #555;
+}
+#button.show {
+	opacity: 1;
+	visibility: visible;
+}
+
 main{
 	margin-top:30px;
 	margin-left: 30%;
@@ -179,7 +189,7 @@ main{
 		@include asideItemStyles;
 		padding: 5px;
 		text-align: center;
-		margin: 13px 3px;
+		margin: 0 0 15px;
 		position: sticky;
 		width: 100%;
 		.state{
@@ -192,7 +202,7 @@ main{
 	}
 	.country_inner{
 		color: white;
-		background-color: #222222;
+		background-color: $main-bgc;
 		border: 3px solid;
 		font-size: 13px;
 		padding: 15px 10px 15px 20px;
@@ -200,15 +210,8 @@ main{
 		opacity: .9;
 		line-height: 1.5;
 		position: relative;
-		.index{
-			position: absolute;
-			top: 25px;
-			right: 15px;
-			font-size: 16px;
-			color: white;
-		}
 		.total_recovered{
-				color: $main-green-text-color;
+			color: $main-green-text-color;
 		}
 		.country_name{
 			text-align: center;
@@ -233,7 +236,8 @@ main{
 		position: relative;
 		margin-bottom: 20px;
 	}
-	article:nth-last-child(-n+19) {
-		display: none;
-	}
 }
+
+
+
+

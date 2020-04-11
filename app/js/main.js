@@ -22,7 +22,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
             let itemNameToUpperCase = item[0].toUpperCase() + item.slice(1);
             block.innerHTML += `${itemNameToUpperCase.split('_').join(' ')}: <span>${deathsInfo[item]}`;
         }
-    })
+    });
 
 
 fetch("https://covid19-data.p.rapidapi.com/geojson-us", {
@@ -49,7 +49,7 @@ fetch("https://covid19-data.p.rapidapi.com/geojson-us", {
                 }
             }
         }
-    })
+    });
 
 
 fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", {
@@ -65,6 +65,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
         })
     .then(function (info) {
         let countriesForSelect = [];
+        let c = [];
         for (let key in info) {
             for (let i = 0; i < info[key].length; i++) {
                 let contentInner = document.createElement('article');
@@ -81,7 +82,6 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                     contentInner.classList.add(classNameByCountry, 'country_inner');
                     contentInner.setAttribute("id", classNameByCountry);
                 }
-
                 for (let item in info[key][i]) {
                     let countryInfo = document.createElement('p');
                     contentInner.appendChild(countryInfo);
@@ -100,7 +100,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
             anchorForCountry.classList.add('search-country');
         }
 
-    })
+    });
 
 
 document.querySelector('.hide-window').onclick = () => document.querySelector('.select-country').classList.toggle('full-height');
@@ -122,4 +122,18 @@ function hideAllCounties() {
 }
 
 countrySearchInput.onkeyup = hideAllCounties;
+var btn = $('#button');
+
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+    } else {
+        btn.removeClass('show');
+    }
+});
+
+btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+});
 

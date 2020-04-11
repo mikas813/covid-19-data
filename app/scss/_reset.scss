@@ -90,3 +90,6 @@ input{
 .empty{
 	display: none;
 }
+article:nth-last-child(-n+19) {
+	display: none;
+}

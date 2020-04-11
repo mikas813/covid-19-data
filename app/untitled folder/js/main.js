@@ -19,7 +19,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
         for (let item in deathsInfo) {
             let block = document.createElement('p');
             totalInfoElement.appendChild(block);
-            block.classList.add(item);
+            block.classList.add( item);
             let itemNameToUpperCase = item[0].toUpperCase() + item.slice(1);
             block.innerHTML += `${itemNameToUpperCase.split('_').join(' ')}: <span>${deathsInfo[item]}`;
         }
@@ -88,6 +88,7 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                     contentInner.appendChild(countryInfo);
                     countryInfo.classList.add(item, 'country_info');
                     let itemNameToUpperCase = item[0].toUpperCase() + item.slice(1);
+                    // noinspection JSUnfilteredForInLoop
                     countryInfo.innerHTML += `${itemNameToUpperCase.split('_').join(' ')}: <span>${info[key][i][item]}`;
                 }
                 // contentInner.innerHTML += `<span class="index">${i}`

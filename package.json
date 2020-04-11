@@ -5,7 +5,8 @@
   "dependencies": {
     "browser-sync": "^2.26.7",
     "g": "^2.0.1",
-    "gulp-rename": "^1.4.0"
+    "gulp-rename": "^1.4.0",
+    "uglify-es": "^3.3.9"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
