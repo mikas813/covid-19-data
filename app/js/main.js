@@ -86,12 +86,10 @@ fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.p
                     if (contentInner.classList.contains(classNameByCountry)) {
                         flagInner.classList.add('country-flag', classNameByCountry);
                             //
-                            flagInner.setAttribute('src', `../flags/${classNameByCountry}.png`);
+                            flagInner.setAttribute('src', `./flags/${classNameByCountry}.png`);
                             contentInner.appendChild(flagInner);
                     }
                 }
-                console.log(classNameByCountry)
-
 
                 for (let item in info[key][i]) {
                     let countryInfo = document.createElement('p');
