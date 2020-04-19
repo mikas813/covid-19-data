@@ -1,0 +1,128 @@
+.side-bar-info{
+  font-size: 18px;
+  @include asideItemStyles;
+  background-color: $main-bgc;
+  opacity: .9;
+  color: white;
+  @media (max-width: 1000px){
+    @include respAsideItems;
+  }
+  .statistic_taken_at{
+    span{
+      color: white;
+    }
+  }
+  .total_cases{
+    color: orange;
+  }
+  .total_recovered{
+    color: $main-green-text-color;
+  }
+  .total_deaths, .new_deaths{
+    color: $main-red-text-color;
+  }
+  .select-country{
+    @include asideItemStyles;
+    height: 50px;
+    margin-top: 30px;
+    overflow: scroll;
+    transition: all 2s;
+    position: absolute;
+    a{
+      display: block;
+    }
+    @media (min-width: 1001px) {
+      width: 100%;
+      top: 270px;
+      left: -10px;
+      margin-top: 60px;
+    }
+    @media (max-width: 1000px){
+      position: fixed;
+      @include respAsideItems;
+      margin-bottom: 10px;
+      padding: 12px;
+    }
+  }
+  .full-height{
+    height: 50vh;
+    transition: all 2s;
+    .hide-window{
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 22px;
+      right: 15px;
+      transition: all 2s;
+      &::before,
+      &::after{
+        content: '';
+        width: 30px;
+        height: 3px;
+        background-color: $main-red-text-color$main-red-text-color;
+        position: absolute;
+
+      }
+      &::before{
+        top: 0;
+        transition: all 1s;
+        right: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after{
+        top: 0;
+        transition: all 1s;
+        right: 0;
+        transform: rotate(-45deg);
+      }
+    }
+    @media (max-width: 1000px){
+      height: 70vh;
+      transition: all 2s;
+    }
+  }
+  .select-title{
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+    @media (min-width: 1001px) {
+      margin-top: -13px;
+    }
+  }
+  .country-seacrh-input{
+    padding: 5px 10px 5px 15px;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .hide-window{
+    width: 30px;
+    height: 3px;
+    background-color: #909090;
+    position: absolute;
+    transition: all 2s;
+
+    top: 22px;
+    right: 15px;
+    &::before,
+    &::after{
+      content: '';
+      width: 30px;
+      height: 3px;
+      background-color: #909090;
+      position: absolute;
+
+    }
+    &::before{
+      top: -9px;
+      right: 0;
+    }
+
+    &::after{
+      top: 9px;
+      right: 0;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+main{
+  margin-top:30px;
+  margin-left: 30%;
+  display: inline-block;
+  .colorado{
+    @include asideItemStyles;
+    padding: 5px;
+    text-align: center;
+    margin: 15px 0 10px;
+    position: sticky;
+    width: 100%;
+    .state{
+      color: white;
+    }
+    .cases,
+    .deaths{
+      color: $main-red-text-color;
+    }
+  }
+  .country_inner{
+    color: white;
+    background-color: $main-bgc;
+    border: 3px solid;
+    font-size: 13px;
+    padding: 15px 10px 15px 20px;
+    border-radius: 15px;
+    opacity: .9;
+    line-height: 1.5;
+    position: relative;
+    .total_recovered{
+      color: $main-green-text-color;
+    }
+    .country_name{
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 10px;
+      span{
+        color: white;
+      }
+    }
+    .region{
+      display: none;
+    }
+    .deaths, .new_deaths{
+      color: $main-red-text-color;
+    }
+  }
+  .country-flag{
+    position: absolute;
+    right: 20px;
+    top: 45px;
+    max-width: 64px;
+  }
+  @media (max-width: 1000px){
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 20px;
+  }
+}
