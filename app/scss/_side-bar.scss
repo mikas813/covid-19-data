@@ -1,5 +1,5 @@
 .side-bar-info{
-  font-size: 18px;
+  font-size: 16px;
   @include asideItemStyles;
   background-color: $main-bgc;
   opacity: .9;
@@ -23,19 +23,29 @@
   }
   .select-country{
     @include asideItemStyles;
-    height: 50px;
-    margin-top: 30px;
-    overflow: scroll;
-    transition: all 2s;
+    height: 49px;
+    margin-top: 20px;
+    overflow: hidden;
     position: absolute;
+    transition: all 2s;
+    .ancors-wrapper{
+      overflow: scroll;
+      height: 100%;
+      //transition: all 2s;
+
+      @media (max-width: 1000px){
+        height: 60vh;
+        transition: all 2s;
+      }
+    }
     a{
       display: block;
     }
     @media (min-width: 1001px) {
       width: 100%;
-      top: 270px;
+      top: 100%;
       left: -10px;
-      margin-top: 60px;
+      margin-top: 20px;
     }
     @media (max-width: 1000px){
       position: fixed;
@@ -45,8 +55,8 @@
     }
   }
   .full-height{
-    height: 50vh;
-    transition: all 2s;
+    height: 100%;
+    //transition: all 2s;
     .hide-window{
       width: 0;
       height: 0;
@@ -78,8 +88,7 @@
       }
     }
     @media (max-width: 1000px){
-      height: 70vh;
-      transition: all 2s;
+      height: 60vh;
     }
   }
   .select-title{

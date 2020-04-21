@@ -17,20 +17,27 @@ main{
       color: $main-red-text-color;
     }
   }
+  .country-index{
+    position: absolute;
+    top: 22px;
+    right: 20px;
+  }
   .country_inner{
     color: white;
     background-color: $main-bgc;
     border: 3px solid;
     font-size: 13px;
-    padding: 15px 10px 15px 20px;
+    padding: 15px 10px 20px 20px;
     border-radius: 15px;
     opacity: .9;
     line-height: 1.5;
     position: relative;
+    margin-bottom: 20px;
     .total_recovered{
       color: $main-green-text-color;
     }
     .country_name{
+      max-width: 85%;
       text-align: center;
       color: #fff;
       font-size: 20px;
