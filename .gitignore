@@ -3,5 +3,6 @@
 .LSOverride
 .vs
 app/css
+dist
 
 node_modules/
