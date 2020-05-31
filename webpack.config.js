@@ -58,7 +58,7 @@ module.exports = {
         new CopyPlugin( [
             {
                 from: path.resolve( __dirname, './app/flags' ),
-                to: path.resolve( __dirname, 'dist' )
+                to: path.resolve( __dirname, 'dist/img' )
             }
         ] ),
         new MiniCssExtractPlugin( {

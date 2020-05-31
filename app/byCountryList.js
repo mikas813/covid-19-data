@@ -1,69 +1,88 @@
-const infoByCountryElement = document.querySelector( '.main-section-info' );
-
-fetch( "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", {
-  "method": "GET",
-  "headers": {
-    "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-    "x-rapidapi-key": "6d291bb001msh74f879e7cae0d1ep1a2a38jsnfdb0b0ba682d"
+fetch( 'https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php', {
+  'method': 'GET',
+  'headers': {
+    'x-rapidapi-host': 'coronavirus-monitor.p.rapidapi.com',
+    'x-rapidapi-key': '6d291bb001msh74f879e7cae0d1ep1a2a38jsnfdb0b0ba682d'
   }
 } )
   .then(
     function (response) {
-      return response.json()
+      return response.json();
     } )
   .then( function (info) {
 
+    let contentInner;
     let countriesForSelect = [];
-    for (let key in info) {
-      for (let i = 0; i < info[key].length; i++) {
-        let contentInner = document.createElement( 'article' );
-        let flagInner = document.createElement( 'img' );
+    let countryInput = document.querySelector( '#search-input' );
 
-        infoByCountryElement.appendChild( contentInner );
-        let classNameByCountry = info[key][i]['country_name'];
-        if (classNameByCountry === '') {
-          classNameByCountry = 'empty';
-        }
+    const selectInner = document.querySelector( '.select-country' );
+    const infoByCountryElement = document.createElement( 'main' );
+    infoByCountryElement.classList.add( 'main-section-info' );
 
-        if (typeof classNameByCountry === 'string' && classNameByCountry !== '') {
-          contentInner.setAttribute( 'data-country-name', classNameByCountry );
-          countriesForSelect += info[key][i]['country_name'] + '*';
-          classNameByCountry = classNameByCountry.toLowerCase();
-          classNameByCountry = classNameByCountry.split( ' ' ).join( '_' );
-          contentInner.classList.add( classNameByCountry, 'country_inner' );
-          contentInner.setAttribute( "id", classNameByCountry );
-          if (contentInner.classList.contains( classNameByCountry )) {
-            flagInner.classList.add( 'country-flag', classNameByCountry );
-            flagInner.setAttribute('loading', 'lazy');
-            flagInner.setAttribute( 'src', `./${classNameByCountry}.png` );
-            contentInner.appendChild( flagInner );
-          }
-          let indexInner = document.createElement('span');
-          indexInner.setAttribute('class', 'country-index');
-          indexInner.innerHTML = i;
-          contentInner.appendChild(indexInner)
-        }
-
-        for (let item in info[key][i]) {
-          let countryInfo = document.createElement( 'p' );
-          contentInner.appendChild( countryInfo );
-          countryInfo.classList.add( item, 'country_info' );
-          let itemNameToUpperCase = item[0].toUpperCase() + item.slice( 1 );
-          countryInfo.innerHTML += `${itemNameToUpperCase.split( '_' ).join( ' ' )}: <span>${info[key][i][item]}`;
-        }
-
+    for (let key in info.countries_stat) {
+      //On every iteration create an article tag and img tag!
+      contentInner = document.createElement( 'article' );
+      let flagInner = document.createElement( 'img' );
+      //Than root element append every article
+      infoByCountryElement.append( contentInner );
+      //This variable contains classes created from api object using split and join methods
+      let classNameByCountry = info.countries_stat[key].country_name;
+      countriesForSelect.push( classNameByCountry );
+      classNameByCountry = classNameByCountry
+        .split( ' ' )
+        .join( '_' )
+        .toLowerCase();
+      //For every img tag adds class equal to its country and one common class, attribute loading-lazy and src
+      // attribute
+      flagInner.classList.add( 'country-flag', classNameByCountry );
+      flagInner.setAttribute( 'loading', 'lazy' );
+      flagInner.setAttribute( 'src', `./img/${classNameByCountry}.png` );
+      //Every article get class, id and append img tag equal to its class name
+      contentInner.classList.add( classNameByCountry, 'country_inner' );
+      contentInner.setAttribute( 'id', classNameByCountry );
+      contentInner.append( flagInner );
+      //This variable create on every iteration an span with index + 1 of its parent than parent append child
+      const indexInner = document.createElement( 'span' );
+      indexInner.setAttribute( 'class', 'country-index' );
+      indexInner.innerHTML = +key + 1;
+      contentInner.appendChild( indexInner );
+      //This iteration create a p tag for every key and name of object set class equal to its key and set text content
+      for (let item in info.countries_stat[key]) {
+        let countryInfo = document.createElement( 'p' );
+        countryInfo.classList.add( item, 'country_info' );
+        let itemNameToUpperCase = item[0].toUpperCase() + item.slice( 1 );
+        countryInfo.innerHTML += `${itemNameToUpperCase.split( '_' ).join( ' ' )}: ${info.countries_stat[key][item]}`;
+        contentInner.appendChild( countryInfo );
       }
     }
-    let selectForCountries = document.querySelector( '.select-country' );
-    let ancorsWrapper = document.createElement('div');
-    ancorsWrapper.setAttribute('class', 'ancors-wrapper');
-    countriesForSelect = countriesForSelect.split( '*' ).sort();
-    for (let key in countriesForSelect) {
-      let anchorForCountry = document.createElement( 'a' );
-      ancorsWrapper.appendChild( anchorForCountry );
-      anchorForCountry.innerHTML += countriesForSelect[key];
-      anchorForCountry.setAttribute( "href", "#" + countriesForSelect[key].toLowerCase().split( ' ' ).join( '_' ) );
-      anchorForCountry.classList.add( 'search-country' );
+
+    //Create an array with ordered countries for search select and add to each element a wrapper tag 'a' with
+    // href attribute equal to its text content!
+    countriesForSelect = countriesForSelect.sort();
+    countriesForSelect.forEach( item => {
+      let el = document.createElement( 'a' );
+      el.textContent = item;
+      el.setAttribute( 'href', `#${item.toLowerCase().split( ' ' ).join( '_' )}` );
+      el.classList.add( 'active-ancor' );
+      selectInner.append( el );
+    } );
+
+
+    //An array for search function
+    const countries = selectInner.querySelectorAll( '.active-ancor' );
+
+    //Function that search country by name using indexOf() method
+    function searchCountry() {
+      for (let i = 0; i < countries.length; i++) {
+        countries[i].style.display = countries[i].innerText
+          .toLowerCase()
+          .indexOf( countryInput.value.toLowerCase() ) > -1 ? '' : 'none';
+      }
     }
-    selectForCountries.appendChild(ancorsWrapper);
+
+    countryInput.addEventListener( 'input', searchCountry );
+
+    infoByCountryElement.append( contentInner );
+    const root = document.querySelector( '.app' );
+    root.append( infoByCountryElement );
   } );

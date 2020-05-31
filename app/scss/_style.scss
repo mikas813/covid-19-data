@@ -1,61 +1,55 @@
-body{
-	background-color: #343434;
-	font-family: 'Lato', sans-serif;
-	letter-spacing: .8px;
-	.background{
-		position: fixed;
-		width: 100%;
-		background-size: cover;
-	}
-}
-header{
-	color: #888888;
-	position: relative;
-	background-color: #333333;
-	padding: 20px;
-	text-align: center;
-	line-height: 1.2;
-	.news{
-		margin-top: 5px;
-	}
-	.link{
-		color: #ffffff;
-	}
+body {
+  background-color: #343434;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .8px;
+
+  .background {
+    position: fixed;
+    width: 100%;
+    background-size: cover;
+  }
 }
 
+header {
+  color: #888888;
+  position: relative;
+  background-color: #333333;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.2;
 
-#button {
-	display: inline-block;
-	background-color: $main-red-text-color;
-	width: 50px;
-	height: 50px;
-	text-align: center;
-	border-radius: 8px;
-	position: fixed;
-	bottom: 15px;
-	right: 15px;
-	transition: background-color .3s,
-	opacity .5s, visibility .5s;
-	//opacity: 0;
-	//visibility: hidden;
-	z-index: 1000;
+  .news {
+    margin-top: 5px;
+  }
+
+  .link {
+    color: #ffffff;
+  }
 }
-#button::after {
-	content: "Go Up";
-	font-size: 1em;
-	line-height: 50px;
-	color: #fff;
-}
-#button:hover {
-	cursor: pointer;
-	background-color: #333;
-}
-#button:active {
-	background-color: #555;
-}
-#button.show {
-	opacity: 1;
-	visibility: visible;
+
+//Button srcoll to top!
+.scrollTop{
+  position: fixed;
+  display: none;
+  width: 75px;
+  height: 75px;
+  background: linear-gradient(-90deg, darkred, transparent);
+  z-index: 10;
+  border-radius: 20px;
+  right: 30px;
+  bottom: 30px;
+
+  &:after {
+    content: 'Go to top.';
+    color: #fff;
+    opacity: .5;
+    font-size: 18px;
+  }
+
+  @media (max-width: 901px) {
+    right: 5px;
+    bottom: 20px;
+  }
 }
 
 

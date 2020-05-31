@@ -1,39 +1,46 @@
 import './scss/main.scss';
-import './colorado'
-import './totalData'
-import './byCountryList'
+import './colorado';
+import './totalData';
+import './byCountryList';
 
-document.querySelector( '.hide-window' ).onclick = () => document.querySelector( '.select-country' ).classList.toggle( 'full-height' );
+//Get the burger button and input
+const burgerButton = document.querySelector( '.hide-window' );
+const input = document.querySelector( '.country-search-input' );
 
-let countrySearchInput = document.getElementById( 'search-input' );
-let allCountries = document.getElementsByClassName( 'search-country' );
-
-function hideAllCounties() {
-
-    for (let i = 0; i < allCountries.length; i++) {
-        allCountries[i].style.display = "none";
-        if (allCountries[i].getAttribute( 'href' ).substr( 1 )[0] === countrySearchInput.value.toLowerCase() || allCountries[i].getAttribute( 'href' ).substr( 1 ) === countrySearchInput.value.toLowerCase()) {
-            allCountries[i].style.display = 'block'
-        } else if (countrySearchInput.value === '') {
-            allCountries[i].style.display = "block";
-        }
-    }
+//Function that toggle state of select
+function closeSelect(e) {
+  if (e.target.className === 'hide-window') {
+    document.querySelector( '.select-country ' ).classList.toggle( 'full-height' );
+  } //If clicked outside of select hide select
+  if (e.target !== burgerButton && e.target !== input) {
+    document.querySelector( '.select-country ' ).classList.remove( 'full-height' );
+    input.value = '';
+  }
 }
 
-countrySearchInput.onkeyup = hideAllCounties;
+document.addEventListener( 'click', closeSelect );
 
-var btn = $( '#button' );
+//Get the button:
+const rootElement = document.querySelector( '.app' );
+const toTopButton = document.createElement( 'button' );
+toTopButton.classList.add( 'scrollTop' );
+rootElement.append( toTopButton );
 
-$( window ).scroll( function () {
-    if ($( window ).scrollTop() > 300) {
-        btn.addClass( 'show' );
-    } else {
-        btn.removeClass( 'show' );
-    }
-} );
-btn.on( 'click', function (e) {
-    e.preventDefault();
-    $( 'html, body' ).animate( {scrollTop: 0}, '300' );
-} );
+// When the user scrolls down 20px from the top of the document, show the button
+document.onscroll = () => scrollFunction();
 
+function scrollFunction() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    toTopButton.style.display = 'block';
+  } else {
+    toTopButton.style.display = 'none';
+  }
+}
 
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+toTopButton.addEventListener( 'click', topFunction );

@@ -2,43 +2,55 @@
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163224354-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'UA-163224354-1');
-    </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163224354-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    function gtag() {
+      dataLayer.push( arguments );
+    }
 
-    <title>Covid-19 Data</title>
+    gtag( 'js', new Date() );
 
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    gtag( 'config', 'UA-163224354-1' );
+  </script>
+  <!-- Google Analytics -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Covid-19 Data</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
+
+<!--Stars for animation-->
 <div id="stars"></div>
 <div id="stars2"></div>
 <div id="stars3"></div>
+<!--Stars for animation-->
 
-    <aside class="side-bar-info">
-        <div class="select-country">
-            <p class="select-title">
-                Select your counrtry
-                <button class="hide-window"></button>
-            </p>
-            <input id="search-input" class="country-seacrh-input" type="text" placeholder="Find your country...">
-        </div>
-    </aside>
+<!--Root element-->
+<div class="app">
+  <aside class="side-bar-info">
+    <div class="select-country">
+      <div>
 
-    <main class="main-section-info">
-        <a id="button"></a>
+        <p class="select-title">
+          Select your counrtry
+          <button class="hide-window"></button>
+          <input id="search-input" class="country-search-input" type="text" placeholder="Find your country...">
+        </p>
+      </div>
+    </div>
+  </aside>
+  <!--  <button id="scrollUp-btn">dsf</button>-->
+</div>
+<!--Root element-->
 
-    </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>

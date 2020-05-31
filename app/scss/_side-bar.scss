@@ -1,97 +1,120 @@
-.side-bar-info{
+.side-bar-info {
   font-size: 16px;
   @include asideItemStyles;
   background-color: $main-bgc;
   opacity: .9;
   color: white;
-  @media (max-width: 1000px){
+  @media (max-width: 1000px) {
     @include respAsideItems;
   }
-  .statistic_taken_at{
-    span{
+
+  .statistic_taken_at {
+    span {
       color: white;
     }
   }
-  .total_cases{
+
+  .total_cases {
     color: orange;
   }
-  .total_recovered{
+
+  .total_recovered {
     color: $main-green-text-color;
   }
-  .total_deaths, .new_deaths{
+
+  .total_deaths, .new_deaths {
     color: $main-red-text-color;
   }
-  .select-country{
+
+  .select-country {
     @include asideItemStyles;
     height: 49px;
     margin-top: 20px;
     overflow: hidden;
     position: absolute;
     transition: all 2s;
-    .ancors-wrapper{
+    overflow-y: scroll;
+
+    .ancors-wrapper {
       overflow: scroll;
       height: 100%;
       //transition: all 2s;
 
-      @media (max-width: 1000px){
+      @media (max-width: 1000px) {
         height: 60vh;
         transition: all 2s;
       }
     }
-    a{
+
+    a {
       display: block;
     }
+
     @media (min-width: 1001px) {
       width: 100%;
       top: 100%;
       left: -10px;
       margin-top: 20px;
     }
-    @media (max-width: 1000px){
+    @media (max-width: 1000px) {
       position: fixed;
       @include respAsideItems;
       margin-bottom: 10px;
       padding: 12px;
     }
+
+    .active-ancor {
+      &:hover {
+        background: #909090;
+        color: #fff;
+        border-radius: 3px;
+      }
+    }
   }
-  .full-height{
+
+  .full-height {
     height: 100%;
     //transition: all 2s;
-    .hide-window{
+    .hide-window {
       width: 0;
       height: 0;
       position: absolute;
       top: 22px;
       right: 15px;
       transition: all 2s;
+
       &::before,
-      &::after{
+      &::after {
         content: '';
         width: 30px;
         height: 3px;
-        background-color: $main-red-text-color$main-red-text-color;
+        background-color: $main-red-text-color ;
+        color: $main-red-text-color;
         position: absolute;
 
       }
-      &::before{
+
+      &::before {
         top: 0;
         transition: all 1s;
         right: 0;
         transform: rotate(45deg);
       }
 
-      &::after{
+      &::after {
         top: 0;
         transition: all 1s;
         right: 0;
         transform: rotate(-45deg);
       }
     }
-    @media (max-width: 1000px){
+
+    @media (max-width: 1000px) {
       height: 60vh;
     }
   }
-  .select-title{
+
+  .select-title {
     font-size: 16px;
     color: white;
     margin-bottom: 10px;
@@ -99,14 +122,16 @@
       margin-top: -13px;
     }
   }
-  .country-seacrh-input{
+
+  .country-search-input {
     padding: 5px 10px 5px 15px;
     width: 100%;
     margin-top: 5px;
     border-radius: 8px;
     margin-bottom: 10px;
   }
-  .hide-window{
+
+  .hide-window {
     width: 30px;
     height: 3px;
     background-color: #909090;
@@ -115,8 +140,9 @@
 
     top: 22px;
     right: 15px;
+
     &::before,
-    &::after{
+    &::after {
       content: '';
       width: 30px;
       height: 3px;
@@ -124,12 +150,13 @@
       position: absolute;
 
     }
-    &::before{
+
+    &::before {
       top: -9px;
       right: 0;
     }
 
-    &::after{
+    &::after {
       top: 9px;
       right: 0;
     }
